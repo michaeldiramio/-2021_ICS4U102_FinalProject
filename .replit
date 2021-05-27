@@ -1,0 +1,2 @@
+language = "java_swing"
+run = "export CLASSPATH=\".:./jars/*\"; javac -d . *.java; java Main"
