@@ -15,7 +15,10 @@ public class PerfectTiming implements MiniGame {
 
     int timedAreaX = dc.getWidth() / 2;
     int timedAreaY = dc.getHeight() / 2;
+
+    double speed = 3;
     
+    //temporary start screen
     dc.clear();
     dc.drawString("TIMED SPACEBAR", dc.getWidth() / 2, dc.getHeight() / 2);
     dc.redraw();
@@ -35,16 +38,17 @@ public class PerfectTiming implements MiniGame {
       }
 
       // ball movement
-      ballX += 5;
+      ballX += speed;
 
       if(ballX >= dc.getWidth()) {
+        speed = speed + 0.25;
         if(spacebarPressed == false) {
           lives--;
         }
         ballX = -20;
         spacebarPressed = false;
       }
-      
+
       // drawing
       dc.fillEllipse(ballX, ballY, 20, 20); // ball
       dc.drawRect(timedAreaX, timedAreaY, 100, 20); // timing area
@@ -54,6 +58,14 @@ public class PerfectTiming implements MiniGame {
       dc.redraw();
       dc.pause(20);
     }
-    return score;
+    if(score>=20){
+      return 100;
+    } else if(score>=15){
+      return 75;
+    }else if(score>=10){
+      return 50;
+    }else{
+      return 25;
+    }
   }
 }
