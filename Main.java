@@ -6,7 +6,6 @@ public class Main {
     // Testing that DConsole works
     DConsole dc = new DConsole(600, 400);
     dc.fillRect(200, 100, 90, 180);
-    dc.drawImage("TestSprite.png", 100, 100);
     dc.redraw();
 
   }
