@@ -37,30 +37,35 @@ public class UpOrDown implements MiniGame{
       block2x -= 5;
 
       if(block1x <= -50){//obstacle respawn
-        block1x = 600 + ran.nextInt(201);
+        block1x = (600 + ran.nextInt(201));
         score++;
       }
 
       if(block2x <= -50){//obstacle respawn
-        block2x = 1100 + ran.nextInt(201);
+        block2x = (1100 + ran.nextInt(201));
         score++;
       }
 
-      //if(block1x ==)
+      int xDiff = block2x - block1x;//calculate dist obtcale to obstacle
+      double dist = Math.sqrt(xDiff * xDiff);
 
-      int xDiff = playerX - block1x;//calculate dist of player to obstacle
-      int yDiff = playerY - block1y;
-      double dist = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+      if(dist < 150){
+        block2x = 600 + ran.nextInt(201);
+      }
 
-      if(dist < 30) {//collision check
+      int xDiff3 = playerX - block1x;//calculate dist of player to obstacle
+      int yDiff3 = playerY - block1y;
+      double dist3 = Math.sqrt(xDiff3 * xDiff3 + yDiff3 * yDiff3);
+
+      if(dist3 < 30) {//collision check
         lives--;
       }
 
-      int xDiff2 = playerX - block2x;//calculate dist of player to obstacle
-      int yDiff2 = playerY - block2y;
-      double dist2 = Math.sqrt(xDiff2 * xDiff2 + yDiff2 * yDiff2);
+      int xDiff4 = playerX - block2x;//calculate dist of player to obstacle
+      int yDiff4 = playerY - block2y;
+      double dist4 = Math.sqrt(xDiff4 * xDiff4 + yDiff4 * yDiff4);
 
-      if(dist < 50) {//collision check
+      if(dist4 < 50) {//collision check
         lives--;
       }
 
