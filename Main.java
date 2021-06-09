@@ -7,7 +7,6 @@ public class Main {
 
   public static void main(String[] args) {
 
-
     // credit to DiRamio and respective classmates for a portion of this code
     DConsole dc = new DConsole(600,400);
     dc.setOrigin(DConsole.ORIGIN_CENTER);
