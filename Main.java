@@ -12,6 +12,7 @@ public class Main {
     dc.setOrigin(DConsole.ORIGIN_CENTER);
     Random r = new Random();
     Player player = new Player();
+    Boss boss = new Boss();
 
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
@@ -40,6 +41,7 @@ public class Main {
       dc.pause(2000);
       level++;
       if(level + 1 > games.size()){
+        System.out.println(boss.fightBoss(dc, player.getLives(),player.getSpeed(), 0));
         inGame = false;
       }
     }

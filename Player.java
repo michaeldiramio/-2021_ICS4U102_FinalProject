@@ -10,7 +10,7 @@ public class Player {
   // Un-comment this if an Item class exists.
 
   // a multiplier to be used on anything affected by speed, altered with items
-  private double speed = 1.0;
+  private int speed = 0;
 
   public int getScore() {
     return this.score;
@@ -45,24 +45,24 @@ public class Player {
     this.shields = shields;
   }
 
-  public double getSpeed() {
+  public int getSpeed() {
     return this.speed;
   }
 
-  public void setSpeed(double speed) {
+  public void setSpeed(int speed) {
     this.speed = speed;
   }
 
   // reverts player back to default, to be used after each minigame, parameter increases score
   public void playerReset (int scoreGained) {
     this.shields = 0;
-    this.speed = 1.0;
+    this.speed = 1;
     this.score += scoreGained;
   }
 
   // version of the previous method that doesn't affect score
   public void playerReset () {
     this.shields = 0;
-    this.speed = 1.0;
+    this.speed = 1;
   }
 }
