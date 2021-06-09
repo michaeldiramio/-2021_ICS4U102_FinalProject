@@ -30,8 +30,8 @@ public class Main {
     int level = 0;
     while(true) {
       
-      MiniGame toPlay = games.get(level); // randomly choose a game
-      int score = toPlay.playGame(dc); // play the game
+      MiniGame current = games.get(level); // randomly choose a game
+      player.setScore(player.getScore() + current.playGame());//play game and save score
 
       // display how they did in the current game
       dc.clear();
@@ -41,7 +41,7 @@ public class Main {
       dc.pause(2000);
       level++;
     }
-
+    
 
   }
 
