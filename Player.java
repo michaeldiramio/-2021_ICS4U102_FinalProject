@@ -7,7 +7,7 @@ public class Player {
   private int shields = 0;
 
   // private ArrayList<Item> backpack = new ArrayList<>(); Un-comment this if an Item class exists.
-  private double speed;
+  private double speed = 1.0;
 
   public int getScore() {
     return this.score;
@@ -47,5 +47,11 @@ public class Player {
 
   public void setSpeed(double speed) {
     this.speed = speed;
+  }
+
+  public void playerReset (int scoreGained) {
+    this.shields = 0;
+    this.speed = 1.0;
+    this.score += scoreGained;
   }
 }
