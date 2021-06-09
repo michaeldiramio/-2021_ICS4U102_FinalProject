@@ -17,6 +17,8 @@ public class Main {
     //add games here vvvvv
     //basic format game.add(new ______());
     game.add(new FlappyBird());
+    game.add(new PerfectTiming());
+    game.add(new UpOrDown());
 
     //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
