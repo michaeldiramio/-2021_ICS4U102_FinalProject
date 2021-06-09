@@ -4,13 +4,16 @@ public class Player {
 
   private int score = 0;
   private int lives = 3;
-  private int shields = 0;
+  private boolean shield = false;
 
   // private ArrayList<Item> backpack = new ArrayList<>();
   // Un-comment this if an Item class exists.
 
-  // a multiplier to be used on anything affected by speed, altered with items
-  private int speed = 0;
+
+  // will only ever be 1, 2 or 3
+  // 1 = default, 2 = single speed, 3 = double speed
+  private int speed = 1;
+
 
   public int getScore() {
     return this.score;
@@ -30,19 +33,19 @@ public class Player {
 
   // removes 1 shield whenever the player would lose a life, and removes a life if the player doesn't have a shield
   public void takeDamage() {
-    if (this.shields > 0) {
-      this.shields--;
+    if (this.shield) {
+      this.shield = false;
     } else {
       this.lives--;
     }
   }
 
-  public int getShields() {
-    return this.shields;
+  public boolean getShield() {
+    return this.shield;
   }
 
-  public void setShields(int shields) {
-    this.shields = shields;
+  public void setShield(boolean shield) {
+    this.shield = shield;
   }
 
   public int getSpeed() {
@@ -55,14 +58,14 @@ public class Player {
 
   // reverts player back to default, to be used after each minigame, parameter increases score
   public void playerReset (int scoreGained) {
-    this.shields = 0;
+    this.shield = false;
     this.speed = 1;
     this.score += scoreGained;
   }
 
   // version of the previous method that doesn't affect score
   public void playerReset () {
-    this.shields = 0;
+    this.shield = false;
     this.speed = 1;
   }
 }
