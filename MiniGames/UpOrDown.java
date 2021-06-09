@@ -53,36 +53,47 @@ public class UpOrDown implements MiniGame{
         if(dist > 150) {
           done = true;
         }else{
-          block2x = 600 + ran.nextInt(201);
+          block2x = 600 + ran.nextInt(401);
         }
       }
 
-      int xDiff3 = playerX - block1x;//calculate dist of player to obstacle
-      int yDiff3 = playerY - block1y;
+      int xDiff2 = playerX - block1x;//calculate dist of player to obstacle
+      int yDiff2 = playerY - block1y;
+      double dist2 = Math.sqrt(xDiff2 * xDiff2 + yDiff2 * yDiff2);
+
+      if(dist2 < 40) {//collision check
+        lives--;
+      }
+
+      int xDiff3 = playerX - block2x;//calculate dist of player to obstacle
+      int yDiff3 = playerY - block2y;
       double dist3 = Math.sqrt(xDiff3 * xDiff3 + yDiff3 * yDiff3);
 
-      if(dist3 < 30) {//collision check
+      if(dist3 < 55) {//collision check
         lives--;
       }
 
-      int xDiff4 = playerX - block2x;//calculate dist of player to obstacle
-      int yDiff4 = playerY - block2y;
-      double dist4 = Math.sqrt(xDiff4 * xDiff4 + yDiff4 * yDiff4);
-
-      if(dist4 < 50) {//collision check
-        lives--;
-      }
-
+      dc.setPaint(Color.BLACK);
       dc.fillEllipse(playerX, playerY, 20, 20);//player
 
+      dc.setPaint(Color.RED);
       dc.fillRect(block1x, block1y, 50, 200);//bottom obstacle
       dc.fillRect(block2x, block2y, 50, 200);//top obstacle
 
+      dc.setPaint(Color.BLACK);
       dc.drawString(score, 20, 20);//score display
 
       dc.redraw();
       dc.pause(20);
     }
-    return score;
+    if(score>=25){
+      return 100;
+    } else if(score>=20){
+      return 75;
+    }else if(score>=15){
+      return 50;
+    }else{
+      return 25;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import DLibX.*;
+import java.awt.Color;
 
 public class PerfectTiming implements MiniGame {
 
@@ -50,6 +51,7 @@ public class PerfectTiming implements MiniGame {
       }
 
       // drawing
+      dc.setPaint(Color.BLACK);
       dc.fillEllipse(ballX, ballY, 20, 20); // ball
       dc.drawRect(timedAreaX, timedAreaY, 100, 20); // timing area
       dc.drawString(score, 20, 20);  // current score
