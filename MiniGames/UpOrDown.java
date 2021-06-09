@@ -40,17 +40,21 @@ public class UpOrDown implements MiniGame{
         block1x = (600 + ran.nextInt(201));
         score++;
       }
-
-      if(block2x <= -50){//obstacle respawn
-        block2x = (1100 + ran.nextInt(201));
+      if(block2x <= -50){
+        block2x = (801 + ran.nextInt(200));
         score++;
       }
 
-      int xDiff = block2x - block1x;//calculate dist obtcale to obstacle
-      double dist = Math.sqrt(xDiff * xDiff);
+      boolean done = false;//check to see if obstacles are too close
+      while(!done){
+        int xDiff = block1x - block2x;
+        double dist = Math.sqrt(xDiff * xDiff);
 
-      if(dist < 150){
-        block2x = 600 + ran.nextInt(201);
+        if(dist > 150) {
+          done = true;
+        }else{
+          block2x = 600 + ran.nextInt(201);
+        }
       }
 
       int xDiff3 = playerX - block1x;//calculate dist of player to obstacle
