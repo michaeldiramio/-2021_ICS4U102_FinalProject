@@ -6,36 +6,47 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    // Testing that DConsole works
-    DConsole dc = new DConsole(600, 400);
+    
+    // credit to DiRamio and respective classmates for a portion of this code
+    DConsole dc = new DConsole(600,400);
     dc.setOrigin(DConsole.ORIGIN_CENTER);
     Random r = new Random();
+    Player player = new Player();
 
+    ArrayList<MiniGame> game = new ArrayList<>();
+    //add games here vvvvv
+    //basic format game.add(new ______());
+    game.add(new FlappyBird());
+    game.add(new PerfectTiming());
+    game.add(new UpOrDown());
+
+    //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
-    games.add(new PerfectTiming());
-    games.add(new UpOrDown());
-
-    while(true) {
-
-      // pre-game screen
-      dc.clear();
-      dc.drawString("Press Space to Play Next Game", dc.getWidth() / 2, dc.getHeight() / 2);
-      dc.redraw();
-
-      while(!dc.isKeyPressed(' ')) { // wait until they press space
-        dc.pause(20);
-      }
-
-      MiniGame toPlay = games.get(r.nextInt(games.size())); // randomly choose a game
-      int score = toPlay.playGame(dc); // play the game
-
-      // display how they did in the current game
-      dc.clear();
-      dc.drawString("You got " + score, dc.getWidth() / 2, dc.getHeight() / 2);
-      dc.redraw();
-
-      dc.pause(2000);
+    int arraySize = game.size();
+    for(int i = 0; i < arraySize; i++){
+      MiniGame temp = game.get(r.nextInt(game.size()));
+      games.add(temp);
+      game.remove(temp);
     }
+    // play games FOREVER!
+    int level = 0;
+    boolean inGame = true;
+    while(inGame) {
+      
+      MiniGame current = games.get(level); // randomly choose a game
+      player.setScore(player.getScore() + current.playGame(dc));//play game and save score
+      
+
+      
+      dc.pause(2000);
+      level++;
+      if(level + 1 > games.size()){
+        inGame = false;
+      }
+    }
+    
+    
   }
+
 
 }
