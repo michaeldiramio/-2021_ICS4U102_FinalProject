@@ -1,5 +1,5 @@
 import DLibX.*;
-//import MiniGames.*;
+import MiniGames.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +12,7 @@ public class Main {
     Random r = new Random();
 
     ArrayList<MiniGame> games = new ArrayList<>();
-    //games.add(new PerfectTiming());
+    games.add(new PerfectTiming());
     games.add(new UpOrDown());
 
     while(true) {
