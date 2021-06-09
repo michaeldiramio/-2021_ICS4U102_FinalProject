@@ -60,6 +60,13 @@ public class FlappyBird implements MiniGame {
           score++;
           pipes.remove(temp);
         }
+
+        // Floor collision
+        if(playerY =< 10){
+          playerY = 10;
+        } 
+        // Game crashes when flappy falls to far
+        // fixed by adding floor
       }
 
       //drawing
