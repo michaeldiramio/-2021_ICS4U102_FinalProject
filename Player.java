@@ -9,9 +9,11 @@ public class Player {
   // private ArrayList<Item> backpack = new ArrayList<>();
   // Un-comment this if an Item class exists.
 
+
   // will only ever be 1, 2 or 3
   // 1 = default, 2 = single speed, 3 = double speed
   private int speed = 1;
+
 
   public int getScore() {
     return this.score;
