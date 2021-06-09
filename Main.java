@@ -34,8 +34,7 @@ public class Main {
     while(inGame) {
       
       MiniGame current = games.get(level); // randomly choose a game
-      player.setScore(player.getScore() + current.playGame(dc));//play game and save score
-      
+      player.playerReset(current.playGame(dc));//play game and save score
 
       
       dc.pause(2000);
