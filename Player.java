@@ -6,7 +6,7 @@ public class Player {
   private int lives = 3;
   private int shields = 0;
 
-  private ArrayList<Items> backpack = new ArrayList<>;
+  // private ArrayList<Item> backpack = new ArrayList<>(); Un-comment this if an Item class exists.
   private double speed;
 
   public int getScore() {
