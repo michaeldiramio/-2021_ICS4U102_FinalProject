@@ -6,7 +6,7 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-
+    /*
     // credit to DiRamio and respective classmates for a portion of this code
     DConsole dc = new DConsole(600,400);
     dc.setOrigin(DConsole.ORIGIN_CENTER);
@@ -31,18 +31,13 @@ public class Main {
     while(true) {
       
       MiniGame current = games.get(level); // randomly choose a game
-      player.setScore(player.getScore() + current.playGame());//play game and save score
-
-      // display how they did in the current game
-      dc.clear();
-      dc.drawString("You got " + score, dc.getWidth() / 2, dc.getHeight() / 2);
-      dc.redraw();
+      player.setScore(player.getScore() + current.playGame(dc));//play game and save score
 
       dc.pause(2000);
       level++;
     }
     
-
+    */
   }
 
 
