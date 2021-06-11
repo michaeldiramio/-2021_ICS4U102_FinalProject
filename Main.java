@@ -16,9 +16,13 @@ public class Main {
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
     //basic format game.add(new ______());
-    game.add(new FlappyBird());
-
-
+    // game.add(new FlappyBird());
+      
+      MiniGame sg = new Boss2();
+      sg.playGame(dc);
+    
+    
+    /*
     //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
     int arraySize = game.size();
@@ -41,8 +45,10 @@ public class Main {
 
       dc.pause(2000);
       level++;
+      
+      
     }
-
+    */
 
   }
 
