@@ -18,9 +18,12 @@ public class Main {
 
 
       
-      MiniGame sg = new Boss2();
-      sg.playGame(dc);
-
+      //MiniGame sg = new Boss();
+      //sg.playGame(dc);
+      Boss2 boss2 = new Boss2();
+      boss2.fightBoss(dc, 1, 1, 0);
+      
+      
 
 
       //add games here vvvvv
