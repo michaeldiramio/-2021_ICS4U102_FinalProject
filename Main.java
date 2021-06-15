@@ -46,7 +46,12 @@ public class Main {
       }
     }
     
-    
+    // public void playerInitialize(Shop s) {
+    // player.setLives(player.getLives() + s.sendLives());
+    // player.setShieldsOwned(s.sendShields());
+    // player.setSpeed1Owned(s.sendSpeedOnes());
+    // player.setSpeed2Owned(s.sendSpeedTwos());
+  }
   }
 
 
