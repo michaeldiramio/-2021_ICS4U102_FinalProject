@@ -11,17 +11,20 @@ public class Boss2 implements MiniGame {
   public int playGame(DConsole dc) { //Starting the game
   Random r = new Random(); //Creating a random
   this.d = dc;
-  
+  //player(this.d);
   
   createCrab(crabs, 200,200); //Crab Constructor, 
-   createCrab(crabs, 300,300); //Crab Constructor, 
-     createCrab(crabs, 200,500); //Crab Constructor, 
-       createCrab(crabs, 200,600); //Crab Constructor, 
-         createCrab(crabs, 600,200); //Crab Constructor, 
-           createCrab(crabs, 200,800); //Crab Constructor, 
+  createCrab(crabs, 300,300); //Crab Constructor, 
+  createCrab(crabs, 200,500); //Crab Constructor, 
+  createCrab(crabs, 200,600); //Crab Constructor, 
+  createCrab(crabs, 600,200); //Crab Constructor, 
+  createCrab(crabs, 200,800); //Crab Constructor, 
+
   while(this.d.isKeyPressed('q') == false) {
   int c = 0;
   this.d.clear();
+
+  //heartBeat();
   while(crabs[c] != null) {
     crabs[c].draw();
     crabs[c].move();
@@ -60,6 +63,7 @@ return gibArray; //return it
    private int x;
    private int y;
    private DConsole dc;
+   private int ani = 0;
 
    public Crab(int x, int y, DConsole d) {
      this.x = x;
@@ -67,12 +71,39 @@ return gibArray; //return it
      this.dc = d;
    }
    public void move() {
-     this.x++;
+     this.x--;
    }
    public void draw() {
-     dc.drawImage("Assets/Crab/Crab0.png",this.x,this.y);
+     this.ani++;
+     if(this.ani >= 3) {
+       ani = 0;
+     }
+     dc.drawImage("Assets/Crab/Crab" + ani + ".png",this.x,this.y);
     
    }
  }
+
+ private class player {
+   private int x = 0;
+   private int y = 0;
+   private DConsole dc;
+
+   public player(DConsole d) {
+     this.dc = d;
+   }
+ 
+
+  public void heartBeat() {
+    this.dc.drawImage("Assets/Crab/Crab0.png", this.x, this.y);
+  }
+
+  public int giveX() {
+    return this.x;
+  }
+
+  public int giveY() {
+    return this.y;
+  }
+}
  }
 
