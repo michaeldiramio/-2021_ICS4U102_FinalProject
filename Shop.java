@@ -21,7 +21,7 @@ public class Shop {
   int score;
   DConsole dc;
   //function to get player score will be in main where this is called
-  public Shop(DConsole dc, player player) {
+  public Shop(DConsole dc, Player player) {
     //basic setup for origin and paint color font can be added later if needed
     dc.setPaint(Color.BLACK);
     dc.setOrigin(DConsole.ORIGIN_TOP_LEFT);
@@ -138,9 +138,10 @@ public class Shop {
     }
 
     dc.pause(100);
+    itemsSent = false;
 
     while(equip == true) {
-      itemsSent = false;
+      itemsSent = true;
       
       dc.clear();
       
@@ -275,7 +276,6 @@ public class Shop {
   
   public boolean checkItems(){
     return itemsSent;
-    itemsSent = true;
   }
 
   //methods for player class to get numbers of items purchased
