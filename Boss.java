@@ -9,27 +9,67 @@ public class Boss{
   public int fightBoss(DConsole dc, int lives, int speed, int weapon){
     Random r = new Random();
     dc.setOrigin(DConsole.ORIGIN_CENTER);
-    Player player = new Player();
+    Player user = new Player();
 
-    player.setLives(lives);
-    player.setSpeed(speed);
-      
+    user.setLives(lives);
+    user.setSpeed(speed);
+    int playerX = 20;
+    int playerY = 40;
+    int velX = 0;
+    int velY = 0;
+
     dc.clear();
     dc.drawString("Boss Fight", dc.getWidth() / 2, dc.getHeight() / 2);
     dc.redraw();
     dc.pause(1000);
 
-    while (player.getLives() > 0){
+    while (user.getLives() > 0){
       dc.clear();
     
-      // player movement
+      // input
+      if(dc.isKeyPressed('w')) {
+        velY -= 2;
+      }
       if(dc.isKeyPressed('a')) {
-        //playerX -= 8;
+        velX -= 2;
+      }
+      if(dc.isKeyPressed('s')) {
+        velY += 2;
       }
       if(dc.isKeyPressed('d')) {
-        //playerX += 8;
+        velX += 2;
       }
 
+      //movments
+      playerX += velX;
+      playerY += velY;
+      if(velX > 0){
+        velX--;
+      }
+      if(velX < 0){
+        velX++;
+      }
+      if(velY > 0){
+        velY--;
+      }
+      if(velY < 0){
+        velY++;
+      }
+      if(velX > 5){
+        velX = 4;
+      }
+      if(velX < -5){
+        velX = -4;
+      }
+      if(velY > 5){
+        velY = 4;
+      }
+      if(velY < -5){
+        velY = -4;
+      }
+
+      //drawing 
+      dc.fillEllipse(playerX, playerY, 30,30);
       dc.redraw();
       dc.pause(20);
     }
