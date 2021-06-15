@@ -1,4 +1,4 @@
-import DLibX.*;
+ import DLibX.*;
 import MiniGames.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,9 +18,9 @@ public class Main {
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
     //basic format game.add(new ______());
-    game.add(new FlappyBird());
+    //game.add(new FlappyBird());
     game.add(new PerfectTiming());
-    game.add(new UpOrDown());
+    //game.add(new UpOrDown());
 
     //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
