@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Player {
 
-  private int score = 0;
+  String name = "Player";
+  int score = 0;
   private int lives = 3;
   private boolean shield = false;
 
