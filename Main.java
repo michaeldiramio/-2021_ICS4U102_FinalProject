@@ -37,6 +37,7 @@ public class Main {
       
       MiniGame current = games.get(level); // randomly choose a game
       player.playerReset(current.playGame(dc));//play game and save score
+      shop.openShop(player.getScore());
       dc.pause(2000);
       level++;
       if(level + 1 > games.size()){
