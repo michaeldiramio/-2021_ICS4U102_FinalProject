@@ -117,6 +117,22 @@ public class Player {
     this.score += scoreGained;
   }
 
+  public void playerInitialize(Shop s) {
+    this.setLives(this.getLives() + s.sendLives());
+    this.setShieldsOwned(s.sendShields());
+    this.setSpeed1Owned(s.sendSpeedOnes());
+    this.setSpeed2Owned(s.sendSpeedTwos());
+    if (s.checkShield()) {
+      this.useShield();
+    }
+    if (s.checkSpeedOne()) {
+      this.useSpeed1();
+    }
+    if (s.checkSpeedTwo()) {
+      this.useSpeed2();
+    }
+  }
+
   // version of the previous method that doesn't affect score
   public void playerReset () {
     this.shield = false;
