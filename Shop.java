@@ -12,7 +12,7 @@ public class Shop {
   static int speedOnes = 0;
   static int speedTwos = 0;
 
-  boolean itemsSent = false;
+  boolean itemsSent = true;
   static boolean useLife;
   static boolean useShield;
   static boolean useSpeedOne;
@@ -42,6 +42,7 @@ public class Shop {
 
     while(shop == true) {
       dc.clear();
+      itemsSent = true;
 
       //draw background
       dc.setPaint(Color.lightGray);
@@ -139,7 +140,7 @@ public class Shop {
     dc.pause(100);
 
     while(equip == true) {
-      itemsSent = true;
+      itemsSent = false;
       
       dc.clear();
       
@@ -270,7 +271,24 @@ public class Shop {
   public boolean checkShield() {
     return useShield;
   }
+  
+  
   public boolean checkItems(){
     return itemsSent;
+    itemsSent = true;
+  }
+
+  //methods for player class to get numbers of items purchased
+  public int sendLives(){
+    return lives;
+  }
+  public int sendShields(){
+    return shields;
+  }
+  public int sendSpeedOnes(){
+    return speedOnes;
+  }
+  public int sendSpeedTwos(){
+    return speedTwos;
   }
 }

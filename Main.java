@@ -6,8 +6,14 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
+    //declaring variables
+    DConsole dc = new DConsole(600,400);
+    dc.setOrigin(DConsole.ORIGIN_CENTER);
+    Random r = new Random();
+    Player player = new Player();
+    Boss boss = new Boss();
+    Shop shop = new Shop(dc, player);
 
-    //creating player
 
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
@@ -31,7 +37,7 @@ public class Main {
       
       MiniGame current = games.get(level); // randomly choose a game
       player.playerReset(current.playGame(dc));//play game and save score
-
+      shop.openShop();
       
       dc.pause(2000);
       level++;
