@@ -7,7 +7,7 @@ import java.awt.Color;
 
 public class Boss{
   
-  public int fightBoss(DConsole dc, int lives, int speed, int weapon){
+  public int fightBoss(DConsole dc, int lives, int speed, int score){
     Random r = new Random();
     dc.setOrigin(DConsole.ORIGIN_CENTER);
     Player user = new Player();
@@ -136,7 +136,7 @@ public class Boss{
       dc.redraw();
       dc.pause(20);
     }
-    return -1;
+    return score;
   }
   
 }
