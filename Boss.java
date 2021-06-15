@@ -34,7 +34,6 @@ public class Boss{
     dc.pause(1000);
     while (user.getLives() > 0){
       dc.clear();
-      dc.setPaint(Color.GREEN);
       // input
       if(dc.isKeyPressed('w')) {
         velY -= 2;
@@ -78,6 +77,7 @@ public class Boss{
       }
 
       //drawing 
+      dc.setPaint(Color.BLACK);
       dc.fillEllipse(playerX, playerY, 30,30);
 
       //----------------------First Boss------------------------
@@ -107,13 +107,23 @@ public class Boss{
         int yDist = babyY - playerY;
         if(Math.sqrt((xDist * xDist)+(yDist * yDist)) < 40){
           user.takeDamage();
-          babyX = 700;
-          babyY = 150;
+          for(int i = 0; i < 70; i++){
+            dc.clear();
+            dc.pause(20);
+            babyX++;
+            babyY--;
+            dc.setPaint(Color.PINK);
+            dc.fillEllipse(babyX, babyY, 50, 50);
+            dc.setPaint(Color.black);
+            dc.fillEllipse(playerX, playerY, 30, 30);
+            dc.redraw();
+          }
+          timer = 0;
         }
         
        
         timer++; 
-
+        dc.setPaint(Color.PINK);
         dc.fillEllipse(babyX, babyY, 50, 50);
         
       }
