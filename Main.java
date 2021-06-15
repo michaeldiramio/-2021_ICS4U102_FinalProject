@@ -6,13 +6,6 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    
-    // credit to DiRamio and respective classmates for a portion of this code
-    DConsole dc = new DConsole(600,400);
-    dc.setOrigin(DConsole.ORIGIN_CENTER);
-    Random r = new Random();
-    Player player = new Player();
-    Boss boss = new Boss();
 
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
