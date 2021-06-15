@@ -21,6 +21,8 @@ public class Main {
     game.add(new FlappyBird());
     game.add(new PerfectTiming());
     game.add(new UpOrDown());
+    game.add(new CoinCollector());
+    game.add(new HitTheTarget());
 
     //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
