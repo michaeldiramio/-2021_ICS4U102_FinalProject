@@ -1,4 +1,4 @@
-import DLibX.*;
+ import DLibX.*;
 import MiniGames.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -22,6 +22,8 @@ public class Main {
     game.add(new FlappyBird());
     game.add(new PerfectTiming());
     game.add(new UpOrDown());
+    game.add(new CoinCollector());
+    game.add(new HitTheTarget());
 
     //sorting MiniGames
     ArrayList<MiniGame> games = new ArrayList<>();
@@ -38,9 +40,12 @@ public class Main {
       
       MiniGame current = games.get(level); // randomly choose a game
       player.playerReset(current.playGame(dc));//play game and save score
+      shop.openShop(player.getScore());
+      player.playerInitialize(shop);
       dc.pause(2000);
       level++;
       if(level + 1 > games.size()){
+
         System.out.println(boss.fightBoss(dc, player.getLives(),player.getSpeed(), 0));
 
         hs.saveScore(player);
@@ -51,7 +56,7 @@ public class Main {
     }
     
     
+    
   }
-
-
-}
+  
+  }

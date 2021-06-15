@@ -20,17 +20,23 @@ public class Shop {
 
   int score;
   DConsole dc;
+
   //function to get player score will be in main where this is called
   public Shop(DConsole dc, Player player) {
     //basic setup for origin and paint color font can be added later if needed
     dc.setPaint(Color.BLACK);
     dc.setOrigin(DConsole.ORIGIN_TOP_LEFT);
 
-    int score = player.getScore();
+    Player Player = player;
+
+    this.dc = dc;
+
     
   }
 
-  public void openShop() {
+  public void openShop(int score) {
+    this.score = score;
+    dc.pause(200);
 
     boolean shop = true;
     boolean equip = false;
@@ -57,7 +63,7 @@ public class Shop {
       dc.drawString("PRESS 'SPACE' TO GO TO EQUIP SCREEN", dc.getWidth() / 2, 385);
       dc.setFont(new Font("Impact", Font.PLAIN, 15));
       dc.drawString("Score: ", dc.getWidth() / 4, 50);
-      dc.drawString(score, (dc.getWidth() / 4) - 10, 50);
+      dc.drawString(score, (dc.getWidth() / 4) + 25, 50);
 
       //creating 4x2 grid
       dc.setPaint(Color.BLACK);
@@ -141,6 +147,7 @@ public class Shop {
     itemsSent = false;
 
     while(equip == true) {
+      dc.pause(100);
       itemsSent = true;
       
       dc.clear();
