@@ -7,12 +7,13 @@ public class Main {
 
   public static void main(String[] args) {
     //declaring variables
-    DConsole dc = new DConsole(600,400);
+    DConsole dc = new DConsole("Finale", 600, 400);
     dc.setOrigin(DConsole.ORIGIN_CENTER);
     Random r = new Random();
     Player player = new Player();
     Boss boss = new Boss();
     Shop shop = new Shop(dc, player);
+    HighScore hs = new HighScore();
 
 
     ArrayList<MiniGame> game = new ArrayList<>();
@@ -44,7 +45,12 @@ public class Main {
       dc.pause(2000);
       level++;
       if(level + 1 > games.size()){
-        System.out.println(boss.fightBoss(dc, player.getLives(),player.getSpeed(), player.getScore()));
+
+        System.out.println(boss.fightBoss(dc, player.getLives(),player.getSpeed(), 0));
+
+        hs.saveScore(player);
+        hs.loadScore();
+
         inGame = false;
       }
     }
