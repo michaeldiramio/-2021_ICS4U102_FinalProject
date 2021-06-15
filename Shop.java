@@ -12,6 +12,7 @@ public class Shop {
   static int speedOnes = 0;
   static int speedTwos = 0;
 
+  boolean itemsSent = false;
   static boolean useLife;
   static boolean useShield;
   static boolean useSpeedOne;
@@ -20,13 +21,12 @@ public class Shop {
   int score;
   DConsole dc;
   //function to get player score will be in main where this is called
-  public Shop(DConsole dc, int score) {
+  public Shop(DConsole dc, player player) {
     //basic setup for origin and paint color font can be added later if needed
     dc.setPaint(Color.BLACK);
     dc.setOrigin(DConsole.ORIGIN_TOP_LEFT);
 
-    this.dc = dc;
-    this.score = score;
+    int score = player.getScore();
     
   }
 
@@ -125,7 +125,7 @@ public class Shop {
         speedTwos = speedTwos + 3;
         score = score - 375;
     }
-    
+
       //checks
       if(dc.isKeyPressed(32)) {
         shop = false;
@@ -139,6 +139,8 @@ public class Shop {
     dc.pause(100);
 
     while(equip == true) {
+      itemsSent = true;
+      
       dc.clear();
       
       //draw background
@@ -267,5 +269,8 @@ public class Shop {
   }
   public boolean checkShield() {
     return useShield;
+  }
+  public boolean checkItems(){
+    return itemsSent;
   }
 }

@@ -7,6 +7,8 @@ public class Main {
 
   public static void main(String[] args) {
 
+    //creating player
+
     ArrayList<MiniGame> game = new ArrayList<>();
     //add games here vvvvv
     //basic format game.add(new ______());
