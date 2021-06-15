@@ -86,7 +86,7 @@ public class Boss2{
         crabs[c].move();
         c++;
         //if(crabs[c].death()) {
-        //  crabs[c].
+        //  //crabs[c] = null;
         //}
        }
 
