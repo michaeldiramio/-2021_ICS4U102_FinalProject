@@ -53,6 +53,3 @@ public class Main {
     // player.setSpeed2Owned(s.sendSpeedTwos());
   }
   }
-
-
-}
